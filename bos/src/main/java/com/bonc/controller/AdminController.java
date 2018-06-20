@@ -25,23 +25,17 @@ public class AdminController {
     @SneakyThrows
     @ResponseBody
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public Result<Admin> login(Admin admin, HttpServletRequest request){
-       adminService.login(admin.getAdminName(),
-        		admin.getAdminPass());
+    public Result<Admin> login(Admin admin){
+        adminService.login(admin.getAdminName(),
+                admin.getAdminPass());
         return  ResultUtil.success(admin);
     }
     
     @RequestMapping(value="/registry",method=RequestMethod.POST)
     @ResponseBody
     @SneakyThrows
-    private Result<Admin> registry(Admin admin,HttpServletRequest request) {
-    	Admin registry=null;
-		try {
-			registry = adminService.registry(admin);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    public Result<Admin> registry(Admin admin) {
+    	Admin registry = adminService.registry(admin);
     	return  ResultUtil.success(registry);
     }
     

@@ -28,13 +28,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
  *
  */
 @Aspect
-@SuppressWarnings("all")
 @Slf4j
 @Component
 public class HttpAspect {
 	
 	/**
-	 * 定义切点
+	 * 定义切点 只能拦截public方法
 	 */
 	@Pointcut("execution(public * com.bonc.controller.AdminController.*(..))")
 	public void logd(){
