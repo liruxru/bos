@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bonc.mapper.AdminMapper" >
+
+
+    <!-- 登录 -->
+    <select id="login" resultType="com.bonc.pojo.Admin">
+  	SELECT admin_id adminId,admin_name adminName,admin_pass adminPass,login_date loginDate,email,status FROM T_ADMIN WHERE  admin_name = #{arg0} and admin_pass = #{arg1}
+    </select>
+
+    <update id="updateAdminSelective" parameterType="com.bonc.pojo.Admin">
+        update t_admin
+        <trim    prefix="set"   suffixOverrides=","   >
+            <if test="adminName != null">
+                admin_name = #{adminName},
+            </if>
+            <if test="adminPass != null">
+                admin_pass = #{adminPass},
+            </if>
+            <if test="loginDate != null">
+                login_date = #{loginDate},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </trim>
+        where admin_id = #{adminId}
+    </update>
+    <insert id="insert" parameterType="com.bonc.pojo.Admin">
+        insert into t_admin values (null ,#{adminName},#{adminPass},#{loginDate},#{email},#{status})
+    </insert>
+    <select id="selectAdminByAdminName" parameterType="string" resultType="com.bonc.pojo.Admin">
+        select admin_id adminId from t_admin where admin_name = #{arg0}
+    </select>
+
+</mapper>
