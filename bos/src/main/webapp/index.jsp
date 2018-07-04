@@ -207,6 +207,37 @@
 
 </div>
 
+<!--修改密码窗口-->
+    <div id="editPwdWindow" class="easyui-window" title="修改密码" collapsible="false" minimizable="false" modal="true" closed="true" resizable="false"
+        maximizable="false" icon="icon-save"  style="width: 350px; height: 160px; padding: 5px;
+        background: #fafafa">
+        <div class="easyui-layout" fit="true">
+        
+            <div region="center" border="false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
+                <form id="editPwdForm">
+	                <table cellpadding=3>
+	               
+	                <!-- easyui-validatebox  校验规则-->
+	                    <tr>
+	                        <td>新密码：</td>
+	                        <td><input  required="true" data-options="validType:'length[4,6]'" id="txtNewPass" 
+	                        	type="Password" class="txt01 easyui-validatebox" /></td>
+	                    </tr>
+	                    <tr>
+	                        <td>确认密码：</td>
+	                        <td><input required="true" data-options="validType:'length[4,6]'" id="txtRePass" 
+	                        	type="Password" class="txt01 easyui-validatebox" /></td>
+	                    </tr>
+	                </table>
+                </form>
+            </div>
+            <div region="south" border="false" style="text-align: right; height: 30px; line-height: 30px;">
+                <a id="btnEp" class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)" >确定</a> 
+                <a id="btnCancel" class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)">取消</a>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 </html>

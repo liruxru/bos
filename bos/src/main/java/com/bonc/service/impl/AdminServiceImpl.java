@@ -53,7 +53,7 @@ public class AdminServiceImpl implements AdminService {
     public void alertLoginPass(String adminName, String adminPass, String newPass) {
         Admin admin = adminMapper.login(adminName,adminPass);
         if(null == admin){
-            throw new Exception("password not correct");
+            throw new AdminException(ExceptionEnum.UPDATE_PASS_ERROR);
         }
         admin.setAdminPass(newPass);
         this.adminMapper.updateAdminSelective(admin);

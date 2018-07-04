@@ -44,5 +44,13 @@ public class AdminController {
     	request.getSession().removeAttribute("admin");
     	return  "login";
     }
+    @RequestMapping(value="/updatePassword",method=RequestMethod.POST)
+    @ResponseBody
+    @SneakyThrows
+    public Result<Object> updatePassword(String newPass,HttpServletRequest request) {
+    	Admin admin = (Admin) request.getSession().getAttribute("admin");
+    	this.adminService.alertLoginPass(admin.getAdminName(), admin.getAdminPass(), newPass);
+    	return  ResultUtil.success(null);
+    }
     
 }
