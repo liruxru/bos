@@ -1,5 +1,7 @@
 package com.bonc.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import lombok.SneakyThrows;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +20,12 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
     @SneakyThrows
-    @ResponseBody
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public Result<Admin> login(Admin admin){
-        adminService.login(admin.getAdminName(),
+    public String login(Admin admin,HttpServletRequest request){
+        Admin login = adminService.login(admin.getAdminName(),
                 admin.getAdminPass());
-        return  ResultUtil.success(admin);
+        request.getSession().setAttribute("admin",login);
+        return  "index";
     }
     
     @RequestMapping(value="/registry",method=RequestMethod.POST)
@@ -35,6 +37,11 @@ public class AdminController {
     }
     @RequestMapping(value="/toLogin",method=RequestMethod.GET)
     public String toLogin(Admin admin) {
+    	return  "login";
+    }
+    @RequestMapping(value="/loginOut",method=RequestMethod.GET)
+    public String loginOut(HttpServletRequest request) {
+    	request.getSession().removeAttribute("admin");
     	return  "login";
     }
     
