@@ -32,13 +32,13 @@
 		<property name="logAbandoned" value="true" />
 <!--	    <property name="logAbandoned" value="${jdbc.logAbandoned}" /> -->
 		<!-- 监控数据库 -->
-	    <property name="filters" value="${jdbc.filters}" />
-
+	    <!-- <property name="filters" value="${jdbc.filters}" /> -->
+<!-- 
 		<property name="proxyFilters">
 	        <list>
 	            <ref bean="log-filter"/>
 	        </list>
-	    </property>
+	    </property> -->
 
 
 	</bean>

@@ -14,7 +14,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Listener implements ServletContextListener{
 
-
+	/**
+	 * web程序初始化
+	 */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         log.debug("程序启动");

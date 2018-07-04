@@ -1,7 +1,6 @@
 package com.bonc.controller;
 
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +14,6 @@ import com.bonc.service.AdminService;
 import com.bonc.util.ResultUtil;
 
 @Controller
-@Slf4j
 public class AdminController {
     @Autowired
     private AdminService adminService;
