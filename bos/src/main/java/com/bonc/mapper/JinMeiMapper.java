@@ -10,4 +10,9 @@ public interface JinMeiMapper {
 	 * @return
 	 */
 	List<JinMei> listZhiBiao();
+	/**
+	 * 添加精煤指标数据
+	 * @param jinMei
+	 */
+	void insert(JinMei jinMei);
 }

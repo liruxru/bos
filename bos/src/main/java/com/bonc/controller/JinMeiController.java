@@ -21,9 +21,9 @@ public class JinMeiController {
 	
 	@RequestMapping(value="jinMeiList",method=RequestMethod.POST)
 	@ResponseBody
-	public Map jinMeiZhiBiaoList(Model model) {
+	public Map<String,Object> jinMeiZhiBiaoList(Model model) {
 		List<JinMei> zhiBiaoList = jinMeiService.listZhiBiao();
-		Map map = new HashMap<>();
+		Map<String,Object> map = new HashMap<>();
 		map.put("total", 100);
 		map.put("rows", zhiBiaoList);
 		return map;
@@ -33,5 +33,10 @@ public class JinMeiController {
 	public String toZhiBao() {
 		return "zhiBiao";
 	}
-
+	
+	@RequestMapping(value="/addZhiBiao")
+	public String addZhiBiao(JinMei jinMei){
+		this.jinMeiService.addZhiBiao(jinMei);
+		return "redirect:toZhiBao"; 
+	}
 }

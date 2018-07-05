@@ -17,5 +17,10 @@ public class JinMeiServiceImpl implements JinMeiService {
 	public List<JinMei> listZhiBiao() {
 		return jinMeiMapper.listZhiBiao();
 	}
+	@Override
+	public void addZhiBiao(JinMei jinMei) {
+		jinMeiMapper.insert(jinMei);
+		System.out.println(jinMei.getId());
+	}
 
 }

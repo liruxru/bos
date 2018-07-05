@@ -5,19 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
- <!-- easyui主题修改 -->
-    <link  id="easyuiTheme"  rel="stylesheet"  type="text/css" href="${pageContext.request.contextPath }/js/easyui/themes/default/easyui.css">
-    <script type="text/javascript"  src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
-    <script type="text/javascript"  src="${pageContext.request.contextPath }/js/easyui/jquery.easyui.min.js"></script>
-    <script type="text/javascript"  src="${pageContext.request.contextPath }/js/easyui/locale/easyui-lang-zh_CN.js"></script>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/js/ztree/zTreeStyle.css" type="text/css">
-    <script type="text/javascript" src="${pageContext.request.contextPath }/js/ztree/jquery.ztree.all-3.5.js"></script>
-	
+ 	
+ <%@ include file="header.jsp"%> 	
 	<script type="text/javascript">
 	
 	function doAdd(){
 		//alert("增加...");
-		$('#addStaffWindow').window("open");
+		$('#addZhiBiaoWindow').window("open");
 	}
 	
 	function doView(){
@@ -57,6 +51,9 @@
 	var columns = [ [ {
 		field : 'id',
 		checkbox : true,
+		title : '编号',
+		width : 120,
+		align : 'center'
 	},{
 		field : 'name',
 		title : '指标名称',
@@ -71,12 +68,12 @@
 		field : 'liu',
 		title : '硫份',
 		width : 120,
-		align : 'center',
+		align : 'center'
 	}, {
 		field : 'huifa',
 		title : '挥发份',
 		width : 120,
-		align : 'center',
+		align : 'center'
 	}, {
 		field : 'zhishu',
 		title : '粘结指数',
@@ -84,6 +81,7 @@
 		align : 'center'
 	} ] ];
 	
+	// 文档加载完成后加载表格
 	$(function(){
 		// 先将body隐藏，再显示，不会出现页面刷新效果
 		$("body").css({visibility:"visible"});
@@ -103,22 +101,46 @@
 			columns : columns,
 			onDblClickRow : doDblClickRow
 		});
-		function doDblClickRow(rowIndex, rowData){
-			alert("双击表格数据...");
-		}
+		
+		// 添加精煤指标窗口 有了这个窗口就不会提前显示
+		$('#addZhiBiaoWindow').window({
+	        title: '添加指标',
+	        width: 400,
+	        modal: true,
+	        shadow: true,
+	        closed: true,
+	        height: 400,
+	        resizable:false
+	    });
+		
+		// 为保存按钮绑定事件 添加指标到数据库
+		$("#save").click(function(){
+			// 表单校验，如果通过，提交表单
+			var v = $("#addZhiBiaoForm").form("validate");
+			if(v){
+				//$("#addStaffForm").form("submit");
+				$("#addZhiBiaoForm").submit();
+			}
+		});
 		
 	});
 
+	function doDblClickRow(rowIndex, rowData){
+		alert("双击表格数据...");
+	}
+	
+	
+	
 	</script>
 
 </head>
 
 
-<body class="easyui-layout" style="visibility:hidden;">
+<body class="easyui-layout" >
 	<div region="center" border="false">
     	<table id="grid"></table>
 	</div>
-	<div class="easyui-window" title="对精煤指标要求进行添加或者修改" id="addStaffWindow" collapsible="false" minimizable="false" maximizable="false" style="top:20px;left:200px">
+	<div class="easyui-window" title="对精煤指标要求进行添加或者修改" id="addZhiBiaoWindow" collapsible="false" minimizable="false" maximizable="false" style="top:20px;left:200px">
 		<div region="north" style="height:31px;overflow:hidden;" split="false" border="false" >
 			<div class="datagrid-toolbar">
 				<a id="save" icon="icon-save" href="#" class="easyui-linkbutton" plain="true" >保存</a>
@@ -126,58 +148,34 @@
 		</div>
 		
 		<div region="center" style="overflow:auto;padding:5px;" border="false">
-			<form id="addStaffForm" action="staffAction_add.action" method="post">
+			<form id="addZhiBiaoForm" action="${pageContext.request.contextPath }/addZhiBiao" method="post">
 				<table class="table-edit" width="80%" align="center">
 					<tr class="title">
-						<td colspan="2">收派员信息</td>
+						<td colspan="2">新指标信息</td>
 					</tr>
 					<tr>
-						<td>姓名</td>
+						<td>指标名称</td>
 						<td><input type="text" name="name" class="easyui-validatebox" required="true"/></td>
 					</tr>
 					<tr>
-						<td>手机</td>
+						<td>灰分</td>
 						<td>
-							<script type="text/javascript">
-								$(function(){
-									//为保存按钮绑定事件
-									$("#save").click(function(){
-										//表单校验，如果通过，提交表单
-										var v = $("#addStaffForm").form("validate");
-										if(v){
-											//$("#addStaffForm").form("submit");
-											$("#addStaffForm").submit();
-										}
-									});
-									
-									var reg = /^1[3|4|5|7|8][0-9]{9}$/;
-									//扩展手机号校验规则
-									$.extend($.fn.validatebox.defaults.rules, { 
-										telephone: { 
-											validator: function(value,param){ 
-											return reg.test(value);
-										}, 
-											message: '手机号输入有误！' 
-										}
-										}); 
-									});
-							</script>
-						<input type="text" data-options="validType:'telephone'" 
-							name="telephone" class="easyui-validatebox" required="true"/></td>
+						
+						<input type="text" 
+							name="hui" class="easyui-validatebox" required="true"/></td>
 					</tr>
 					<tr>
-						<td>单位</td>
-						<td><input type="text" name="station" class="easyui-validatebox" required="true"/></td>
+						<td>硫份</td>
+						<td><input type="text" name="liu" class="easyui-validatebox" required="true"/></td>
 					</tr>
 					<tr>
-						<td colspan="2">
-						<input type="checkbox" name="haspda" value="1" />
-						是否有PDA</td>
+						<td>挥发份</td>
+						<td><input type="text" name="huifa" /></td>
 					</tr>
 					<tr>
-						<td>取派标准</td>
+						<td>粘结指数</td>
 						<td>
-							<input type="text" name="standard" class="easyui-validatebox" required="true"/>  
+							<input type="text" name="zhishu" />  
 						</td>
 					</tr>
 					</table>
