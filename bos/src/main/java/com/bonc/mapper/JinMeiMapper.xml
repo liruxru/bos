@@ -4,6 +4,7 @@
     <select id="listZhiBiao" resultType="com.bonc.pojo.JinMei" >
         select * from t_jinmei
     </select>
+    <!-- 添加精煤指标 返回主键-->
     <insert id="insert" parameterType="com.bonc.pojo.JinMei"
     				keyProperty="id" 	useGeneratedKeys="true">
     	insert into t_jinmei values (#{id},#{name},#{hui},#{liu},#{huifa},#{zhishu})
