@@ -1,11 +1,13 @@
 package com.bonc.service;
 
-import java.util.List;
 
+import com.bonc.pojo.PageBean;
 import com.bonc.pojo.YuanMei;
 
 public interface YuanMeiService {
 
-	List<YuanMei> yuanMeiList();
+	PageBean<YuanMei> yuanMeiList(int page, int rows, int status);
+
+	void addYuanMei(YuanMei yuanMei);
 
 }

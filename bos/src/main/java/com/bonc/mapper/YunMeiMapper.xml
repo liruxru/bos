@@ -4,4 +4,13 @@
     <select id="findAll" resultType="com.bonc.pojo.YuanMei" >
         select * from t_yuanmei
     </select>
+     <!-- 添加原煤 返回主键    -->
+    <insert id="addYuanMei" parameterType="com.bonc.pojo.YuanMei"
+    				keyProperty="id" 	useGeneratedKeys="true">
+    	insert into t_yuanmei values (#{id},#{name},#{hui},#{liu},#{huifa},#{zhishu},#{huishou},#{chengben},#{status})
+    </insert>
+      <select id="findAllBystatus" resultType="com.bonc.pojo.YuanMei" parameterType="int" >
+        select * from t_yuanmei where status=#{0}
+    </select>
+    
 </mapper>

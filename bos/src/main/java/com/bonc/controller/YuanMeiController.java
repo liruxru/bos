@@ -1,14 +1,13 @@
 package com.bonc.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bonc.pojo.PageBean;
 import com.bonc.pojo.YuanMei;
 import com.bonc.service.YuanMeiService;
 
@@ -24,12 +23,19 @@ public class YuanMeiController {
 	
 	@RequestMapping(value="yuanMeiList")
 	@ResponseBody
-	public List<YuanMei> yuanMeiList(){
-		List<YuanMei> yuanMeiList = yuanMeiService.yuanMeiList();
-		Map<String,Object> map = new HashMap<>();
-		map.put("total", 100);
-		map.put("rows", yuanMeiList);
+	public PageBean<YuanMei> yuanMeiList(
+			@RequestParam(defaultValue="1")int page,
+			@RequestParam(defaultValue="10")int rows,
+			@RequestParam(defaultValue="1")int status){
+		PageBean<YuanMei> yuanMeiList = yuanMeiService.yuanMeiList(page,rows,status);
 		return yuanMeiList;
 	}
+	@RequestMapping(value="addYuanMei")
+	public String addYuanMei(YuanMei yuanMei) {
+		this.yuanMeiService.addYuanMei(yuanMei);
+		return "redirect:toYuanMei";
+	}
+	
+	
 
 }
