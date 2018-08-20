@@ -59,7 +59,7 @@
 
             //发送ajax请求，获取json数据
             //jQuery提供 的ajax方法：ajax、post、get、load、getJSON、getScript
-            var url = "${pageContext.request.contextPath}/json/menu.json";
+            var url = "${pageContext.request.contextPath}/menu";
             $.get(url,{},function(data){
                 //调用API初始化ztree
                 $.fn.zTree.init($("#ztree3"), setting3, data);
