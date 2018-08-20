@@ -8,8 +8,10 @@ public interface YuanMeiService {
 
 	PageBean<YuanMei> yuanMeiList(int page, int rows, int status);
 
-	void addYuanMei(YuanMei yuanMei);
+	YuanMei addYuanMei(YuanMei yuanMei);
 
 	void deleteYuanMeiByIds(int[] yuanMeiIds);
+
+	void updateYuanMeis(int[] yuanMeiIds, int status);
 
 }
