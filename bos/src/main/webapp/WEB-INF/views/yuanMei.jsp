@@ -35,13 +35,27 @@
 
 		});
 	}
-	
+	// 删除原煤
 	function doDelete(){
 		var data = getChecked();
-		for (var i=0;i<data.length;i++)
-		{
-			alert(data[i].id)
+		var yuanMeiIds = new  Array();
+		for (var i=0;i<data.length;i++){
+			alert( $('#grid').datagrid('getRowIndex',data[i]))
+			yuanMeiIds.push(data[i].id)
 		}
+		/* var url = "${pageContext.request.contextPath }/yuanMei/delete";
+		$.post(url,{'yuanMeiIds':yuanMeiIds},function(result){
+			alert(result.code)
+			alert(result.msg)
+			if(result.code==0){
+				for (var i=0;i<data.length;i++){
+					$('#grid').datagrid("deleteRow",data[i].index)
+				}
+			}
+				
+		})
+		 */
+		
 	}
 	// 返回被选择的数据行   每行代表一个  YuanMei 类（javaBean）
 	function getChecked() {

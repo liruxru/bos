@@ -17,4 +17,6 @@ public interface YuanMeiMapper {
 
 	List<YuanMei> findAllBystatus(int status);
 
+	void deleteYuanMeiByIds(int[] yuanMeiIds);
+
 }

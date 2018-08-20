@@ -10,4 +10,6 @@ public interface YuanMeiService {
 
 	void addYuanMei(YuanMei yuanMei);
 
+	void deleteYuanMeiByIds(int[] yuanMeiIds);
+
 }

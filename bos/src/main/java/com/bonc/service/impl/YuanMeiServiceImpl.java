@@ -50,5 +50,9 @@ public class YuanMeiServiceImpl implements YuanMeiService {
 		yuanMei.setStatus(1);
 		this.yuanMeiMapper.addYuanMei(yuanMei);
 	}
+	@Override
+	public void deleteYuanMeiByIds(int[] yuanMeiIds) {
+		this.yuanMeiMapper.deleteYuanMeiByIds(yuanMeiIds);
+	}
 
 }
