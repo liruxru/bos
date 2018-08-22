@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bonc.mapper.LoggerMapper" >
 
-    <insert id="save" parameterType="com.bonc.pojo.LoggerPo">
+    <insert id="save" parameterType="com.bonc.pojo.util.LoggerPo">
         insert into t_logger values (#{sessionId} ,#{clientIp},#{uri},#{method},#{paramData},#{statusCode},
         #{returnData} ,#{timeConsuming},#{beginTime},#{returnTime})
     </insert>

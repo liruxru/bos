@@ -4,11 +4,11 @@
 
 
     <!-- 登录 -->
-    <select id="login" resultType="com.bonc.pojo.Admin">
+    <select id="login" resultType="com.bonc.pojo.entity.Admin">
   	SELECT admin_id adminId,admin_name adminName,admin_pass adminPass,login_date loginDate,email,status FROM T_ADMIN WHERE  admin_name = #{arg0} and admin_pass = #{arg1}
     </select>
 
-    <update id="updateAdminSelective" parameterType="com.bonc.pojo.Admin">
+    <update id="updateAdminSelective" parameterType="com.bonc.pojo.entity.Admin">
         update t_admin
         <trim    prefix="set"   suffixOverrides=","   >
             <if test="adminName != null">
@@ -29,10 +29,10 @@
         </trim>
         where admin_id = #{adminId}
     </update>
-    <insert id="insert" parameterType="com.bonc.pojo.Admin">
+    <insert id="insert" parameterType="com.bonc.pojo.entity.Admin">
         insert into t_admin values (null ,#{adminName},#{adminPass},#{loginDate},#{email},#{status})
     </insert>
-    <select id="selectAdminByAdminName" parameterType="string" resultType="com.bonc.pojo.Admin">
+    <select id="selectAdminByAdminName" parameterType="string" resultType="com.bonc.pojo.entity.Admin">
         select admin_id adminId from t_admin where admin_name = #{arg0}
     </select>
 

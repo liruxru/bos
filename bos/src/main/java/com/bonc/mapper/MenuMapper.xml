@@ -4,7 +4,7 @@
 
 
     <!-- 查询菜单 -->
-    <select id="selectMenu" resultType="com.bonc.pojo.Menu">
+    <select id="selectMenu" resultType="com.bonc.pojo.entity.Menu">
   	SELECT * FROM T_MENU
     </select>
 

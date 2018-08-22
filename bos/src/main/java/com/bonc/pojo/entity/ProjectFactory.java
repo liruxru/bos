@@ -12,4 +12,5 @@ public class ProjectFactory {
 	private int id;
 	private String name;
 	private String address;
+	private Admin admin;
 }
