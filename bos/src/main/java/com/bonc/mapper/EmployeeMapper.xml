@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.bonc.mapper.YuanMeiMapper" >
-    <select id="findAll" resultType="com.bonc.pojo.entity.YuanMei" >
-        select * from t_yuanmei
+<mapper namespace="com.bonc.mapper.EmployeeMapper" >
+    <select id="findAllBystatus" resultType="com.bonc.pojo.entity.Employee" parameterType="int" >
+        select * from t_employee where status = #{0}
     </select>
     
     
