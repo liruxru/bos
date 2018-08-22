@@ -1,6 +1,6 @@
 package com.bonc.service;
 
-import com.bonc.pojo.Admin;
+import com.bonc.pojo.entity.Admin;
 public interface AdminService {
     /**
      * 用户注册

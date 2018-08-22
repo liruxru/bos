@@ -1,6 +1,6 @@
 package com.bonc.mapper;
 
-import com.bonc.pojo.LoggerPo;
+import com.bonc.pojo.util.LoggerPo;
 
 public interface LoggerMapper {
 

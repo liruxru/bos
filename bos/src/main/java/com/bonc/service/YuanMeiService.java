@@ -1,8 +1,8 @@
 package com.bonc.service;
 
 
-import com.bonc.pojo.PageBean;
-import com.bonc.pojo.YuanMei;
+import com.bonc.pojo.entity.YuanMei;
+import com.bonc.pojo.util.PageBean;
 
 public interface YuanMeiService {
 

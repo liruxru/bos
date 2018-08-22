@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bonc.mapper.MenuMapper;
-import com.bonc.pojo.Menu;
+import com.bonc.pojo.entity.Menu;
 import com.bonc.service.MenuService;
 @Service
 public class MenuServiceImpl implements MenuService {

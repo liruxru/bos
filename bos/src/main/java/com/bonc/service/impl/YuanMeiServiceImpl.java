@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bonc.mapper.YuanMeiMapper;
-import com.bonc.pojo.PageBean;
-import com.bonc.pojo.YuanMei;
+import com.bonc.pojo.entity.YuanMei;
+import com.bonc.pojo.util.PageBean;
 import com.bonc.service.YuanMeiService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;

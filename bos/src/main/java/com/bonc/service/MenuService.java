@@ -2,7 +2,7 @@ package com.bonc.service;
 
 import java.util.List;
 
-import com.bonc.pojo.Menu;
+import com.bonc.pojo.entity.Menu;
 
 public interface MenuService {
 

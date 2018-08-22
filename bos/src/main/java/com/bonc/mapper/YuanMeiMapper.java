@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 
-import com.bonc.pojo.YuanMei;
+import com.bonc.pojo.entity.YuanMei;
 
 public interface YuanMeiMapper {
 

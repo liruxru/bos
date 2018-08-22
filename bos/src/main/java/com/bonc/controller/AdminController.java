@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bonc.pojo.Admin;
-import com.bonc.pojo.Result;
+import com.bonc.pojo.entity.Admin;
+import com.bonc.pojo.util.Result;
 import com.bonc.service.AdminService;
 import com.bonc.util.ResultUtil;
 

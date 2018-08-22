@@ -1,6 +1,8 @@
-package com.bonc.pojo;
+package com.bonc.pojo.entity;
 
 import java.util.Date;
+
+import com.bonc.pojo.code.EmployTypeCode;
 
 import lombok.Data;
 /**
@@ -19,5 +21,6 @@ public class Employee {
 	private String idCard;
 	private Date hiredate; // 入职日期
 	private double salary; // 工资
+	private EmployTypeCode employType;
 	private ProjectFactory factory;
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.bonc.enums.ExceptionEnum;
 import com.bonc.exception.AdminException;
 import com.bonc.mapper.AdminMapper;
-import com.bonc.pojo.Admin;
+import com.bonc.pojo.entity.Admin;
 import com.bonc.service.AdminService;
 import com.bonc.util.ResultUtil;
 

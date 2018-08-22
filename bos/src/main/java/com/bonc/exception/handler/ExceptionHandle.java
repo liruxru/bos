@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bonc.exception.AdminException;
-import com.bonc.pojo.Result;
+import com.bonc.pojo.util.Result;
 import com.bonc.util.ResultUtil;
 
 @ControllerAdvice

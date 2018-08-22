@@ -1,6 +1,6 @@
 package com.bonc.mapper;
 
-import com.bonc.pojo.Admin;
+import com.bonc.pojo.entity.Admin;
 
 public interface AdminMapper {
     Admin login(String adminName, String adminPass);

@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.bonc.pojo.LoggerPo;
+import com.bonc.pojo.util.LoggerPo;
 import com.bonc.service.LoggerService;
 import com.bonc.util.SpringContextUtil;
 

@@ -2,7 +2,7 @@ package com.bonc.service;
 
 import java.util.List;
 
-import com.bonc.pojo.JinMei;
+import com.bonc.pojo.entity.JinMei;
 
 public interface JinMeiService {
 	

@@ -1,6 +1,6 @@
 package com.bonc.util;
 
-import com.bonc.pojo.Result;
+import com.bonc.pojo.util.Result;
 
 public class ResultUtil {
 	

@@ -2,7 +2,7 @@ package com.bonc.mapper;
 
 import java.util.List;
 
-import com.bonc.pojo.JinMei;
+import com.bonc.pojo.entity.JinMei;
 
 public interface JinMeiMapper {
 	/**

@@ -1,4 +1,4 @@
-package com.bonc.pojo;
+package com.bonc.pojo.util;
 
 import lombok.Data;
 

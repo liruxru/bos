@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bonc.mapper.LoggerMapper;
-import com.bonc.pojo.LoggerPo;
+import com.bonc.pojo.util.LoggerPo;
 import com.bonc.service.LoggerService;
 @Service(value="loggerService")
 public class LoggerServiceImpl implements LoggerService {

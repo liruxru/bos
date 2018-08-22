@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bonc.pojo.PageBean;
-import com.bonc.pojo.Result;
-import com.bonc.pojo.YuanMei;
+import com.bonc.pojo.entity.YuanMei;
+import com.bonc.pojo.util.PageBean;
+import com.bonc.pojo.util.Result;
 import com.bonc.service.YuanMeiService;
 import com.bonc.util.ResultUtil;
 
